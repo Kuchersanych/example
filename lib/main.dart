@@ -108,8 +108,12 @@ class _HomePageState extends State<HomePage> {
 /*
 1) Создание ветки из текущей
 2) Внесение изминений в вновь созданную - RollBack
-3) Commit
+3) Commit - вкладка
 4) Add to VCS
 5) Указать комментарий
-6) Нажалт Commit
+6) Нажал Commit - действие
+7) Checkout в ту ветку с которой ходим смержить
+8) Merge Selected into Current
+9) Push
+10) Можно удалить второстепенную ветку
  */
