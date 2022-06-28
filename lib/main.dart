@@ -87,9 +87,7 @@ class _HomePageState extends State<HomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -105,3 +103,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+/*
+1) Создание ветки из текущей
+2) Внесение изминений в вновь созданную - RollBack
+3) Commit
+4) Add to VCS
+5) Указать комментарий
+6) Нажалт Commit
+ */
