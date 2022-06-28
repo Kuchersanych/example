@@ -1,3 +1,5 @@
+import 'package:example/app_colors.dart';
+import 'package:example/app_texts.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,10 +13,14 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        title: Text(
-          'LOOK'
-        ),
+        title:
+          AppTexts.look,
+        actions: [
+          IconButton(onPressed: () {},
+              icon: const Icon(Icons.search),),
+        ],
       ),
       body: Center(
         child: Column(
