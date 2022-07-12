@@ -6,4 +6,5 @@ abstract class AppTexts{
   static const serials = 'Сериалы';
 
 
+
 }
