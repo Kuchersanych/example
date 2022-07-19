@@ -8,5 +8,8 @@ abstract class AppColors{
   static const iconMenuColor = Color.fromRGBO(0, 151, 136, 1);
   static const textMenuColor = Color.fromRGBO(255, 255, 221, 1);
   static const iconAddVideosColor = Color.fromRGBO(255, 255, 221, 1);
+  static const textTextFormFieldColor = Color.fromRGBO(255, 255, 221, 1);
+  static const iconBottomNavigationBarColor = Color.fromRGBO(41, 41, 41, 1);
+  static const labelBottomNavigationBarColor = Color.fromRGBO(41, 41, 41, 1);
 
 }

@@ -1,6 +1,6 @@
 import 'package:example/app_colors.dart';
 import 'package:example/app_texts.dart';
-import 'package:example/modules/movies_module/appIcons.dart';
+import 'package:example/modules/movies_module/app_Icons.dart';
 import 'package:example/modules/movies_module/movies_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,10 +20,10 @@ class _SerialsScreenState extends State<SerialsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(AppTexts.serials),
-
-      ),
+      // appBar: AppBar(
+      //   title: const Text(AppTexts.serials),
+      //
+      // ),
       body: Center(
         child: Column(
           children: const [
@@ -32,7 +32,8 @@ class _SerialsScreenState extends State<SerialsScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.backgroundColor,
-        onPressed: addVideos,
+        onPressed: (){},
+        // addVideos,
         child: AppIcons.addMoviesIcon,
 
       ),

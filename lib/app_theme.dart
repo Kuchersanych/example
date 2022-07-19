@@ -17,5 +17,10 @@ ThemeData appTheme () => ThemeData(
       size: 40.0,
     ),
   ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: AppColors.appBarColor,
+    selectedItemColor: AppColors.textMenuColor,
+    unselectedItemColor: AppColors.labelBottomNavigationBarColor,
+  ),
   scaffoldBackgroundColor: AppColors.backgroundColor,
 );

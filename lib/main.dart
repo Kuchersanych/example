@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_theme.dart';
 import 'modules/main_module/main_screen.dart';
+import 'modules/movies_module/add_movie_screen.dart';
 
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme(),
       home:
+      // AddMovieScreen(),
       MainScreen(),
     );
   }
