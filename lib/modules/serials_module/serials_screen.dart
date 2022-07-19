@@ -4,6 +4,8 @@ import 'package:example/modules/movies_module/app_Icons.dart';
 import 'package:example/modules/movies_module/movies_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../movies_module/widgets/movie_list/movie_list_widget.dart';
+
 class SerialsScreen extends StatefulWidget {
   const SerialsScreen({Key? key}) : super(key: key);
 
@@ -24,11 +26,8 @@ class _SerialsScreenState extends State<SerialsScreen> {
       //   title: const Text(AppTexts.serials),
       //
       // ),
-      body: Center(
-        child: Column(
-          children: const [
-          ],
-        ),
+      body: const Center(
+        child: MovieListWidget(),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.backgroundColor,

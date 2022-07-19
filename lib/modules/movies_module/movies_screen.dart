@@ -22,23 +22,8 @@ class _MoviesScreenState extends State<MoviesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text(AppTexts.movies),
-      //   actions: [
-      //     IconButton(onPressed: () {},
-      //       icon: AppIcons.searchIcon),
-      //   ],
-      // ),
-      body: ListView(children: [
-        Center(
-          child: Column(
-            children:   const [
-              MovieListWidget(),
-              ],
-          ),
-
-        ),
-        ]
+      body: const Center(
+        child: MovieListWidget(),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.backgroundColor,

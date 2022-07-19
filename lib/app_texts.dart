@@ -6,6 +6,7 @@ abstract class AppTexts{
   static const serials = 'Сериалы';
   static const add = Text('Добавить');
   static const menu = 'Меню';
+  static const nameMovie = 'Название фильма';
 
 
 

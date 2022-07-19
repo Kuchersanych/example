@@ -18,6 +18,7 @@ ThemeData appTheme () => ThemeData(
     ),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+
     backgroundColor: AppColors.appBarColor,
     selectedItemColor: AppColors.textMenuColor,
     unselectedItemColor: AppColors.labelBottomNavigationBarColor,

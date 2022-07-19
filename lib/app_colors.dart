@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 /// Класс цветов приложения.
 abstract class AppColors{
   static const buttonSearchColor = Color.fromRGBO(255, 255, 221, 1);
@@ -11,5 +11,9 @@ abstract class AppColors{
   static const textTextFormFieldColor = Color.fromRGBO(255, 255, 221, 1);
   static const iconBottomNavigationBarColor = Color.fromRGBO(41, 41, 41, 1);
   static const labelBottomNavigationBarColor = Color.fromRGBO(41, 41, 41, 1);
+  static const borderColor = Color.fromRGBO(0, 151, 136, 0.2);
+  static const shadowColor = Color.fromRGBO(0, 151, 136, 0.3);
+  static const movieWidgetColor = Color.fromRGBO(0, 151, 136, 0.5);
+  static const transparentColor = Colors.transparent;
 
 }

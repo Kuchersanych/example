@@ -17,7 +17,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
 
-  int _selectedTab = 1;
+  int _selectedTab = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     MainMenuWidget(),
     MoviesScreen(),
