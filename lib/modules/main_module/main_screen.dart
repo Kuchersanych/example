@@ -1,5 +1,6 @@
 import 'package:example/app_colors.dart';
 import 'package:example/app_texts.dart';
+import 'package:example/modules/movies_module/add_movie_screen.dart';
 import 'package:example/modules/movies_module/app_Icons.dart';
 import 'package:example/modules/serials_module/serials_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +19,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
 
   int _selectedTab = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    MainMenuWidget(),
-    MoviesScreen(),
-    SerialsScreen(),
-  ];
+
 
   void onSelectedTab(int index){
     if(_selectedTab == index) return;
@@ -55,9 +52,20 @@ class _MainScreenState extends State<MainScreen> {
 
       ),
       body:
-      Center(
-        child: _widgetOptions[_selectedTab],
+      IndexedStack(
+        index: _selectedTab,
+        children: const [
+        MainMenuWidget(),
+        MoviesScreen(),
+        SerialsScreen(),
+        ]
       ),
+
+      floatingActionButton:  _selectedTab != 0 ? FloatingActionButton(
+        backgroundColor: AppColors.backgroundColor,
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => _selectedTab == 1 ? const AddMovieScreen() : Scaffold())),
+        child: AppIcons.addMoviesIcon,
+      ) : null,
     );
   }
 }
@@ -71,10 +79,10 @@ class MainMenuWidget extends StatelessWidget {
       Center(
         child: Column(
           children:   [
-            MenuWidget(icon: Icons.movie_creation_sharp, text: AppTexts.movies, onTap: (){final navigatorMovies =  Navigator.of(context);
-            navigatorMovies.push(MaterialPageRoute(builder: (context) => const MoviesScreen()));},),
-            MenuWidget(icon: Icons.movie_filter_outlined, text: AppTexts.serials, onTap: () {final navigatorSerials = Navigator.of(context);
-            navigatorSerials.push(MaterialPageRoute(builder: (context) => const SerialsScreen()));},),
+            MenuWidget(icon: Icons.movie_creation_sharp, text: AppTexts.addMovie, onTap: (){final navigatorMovies =  Navigator.of(context);
+            navigatorMovies.push(MaterialPageRoute(builder: (context) => const AddMovieScreen()));},),
+            // MenuWidget(icon: Icons.movie_filter_outlined, text: AppTexts.serials, onTap: () {final navigatorSerials = Navigator.of(context);
+            // navigatorSerials.push(MaterialPageRoute(builder: (context) => const SerialsScreen()));},),
           ],
         ),
 

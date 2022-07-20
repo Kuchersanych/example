@@ -7,6 +7,9 @@ abstract class AppTexts{
   static const add = Text('Добавить');
   static const menu = 'Меню';
   static const nameMovie = 'Название фильма';
+  static const descriptionMovie = 'Описание';
+  static const search = 'Поиск';
+  static const addMovie = 'Добавить фильм';
 
 
 

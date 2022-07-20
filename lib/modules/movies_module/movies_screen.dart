@@ -15,21 +15,11 @@ class MoviesScreen extends StatefulWidget {
 }
 
 class _MoviesScreenState extends State<MoviesScreen> {
-  void addVideos() {
-    final navigatorMovies =  Navigator.of(context);
-    navigatorMovies.push(MaterialPageRoute(builder: (context) => const AddMovieScreen()));
-  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
+    return const Scaffold(
+      body:  Center(
         child: MovieListWidget(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.backgroundColor,
-        onPressed: addVideos,
-        child: AppIcons.addMoviesIcon,
-
       ),
     );
   }

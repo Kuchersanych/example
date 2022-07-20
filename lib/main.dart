@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: appTheme(),
       home:
       // AddMovieScreen(),
-      MainScreen(),
+      const MainScreen(),
     );
   }
 }

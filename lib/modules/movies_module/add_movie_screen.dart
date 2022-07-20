@@ -16,42 +16,45 @@ class _AddMovieScreenState extends State<AddMovieScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
+
+        child: ListView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           children: [
-            Expanded(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: Responsive.height(10.0, context),
-                  ),
-                  TextFormField(
-                    style: const TextStyle(
-                      color: AppColors.textTextFormFieldColor,
+            Column(
+              children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      height: Responsive.height(10.0, context),
                     ),
-                    autofocus: false,
-                    decoration: InputDecoration(
-                      prefixIcon: AppIcons.searchIcon,
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: Responsive.width(4.0, context),
-                        ),
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                        )),
-                  ),
-                  SizedBox(
-                    height: Responsive.height(10.0, context),
-                  ),
-                  FormWidget(),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: Responsive.height(5.0, context)),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: AppTexts.add,
-              ),
+                    TextFormField(
+                      style: const TextStyle(
+                        color: AppColors.textTextFormFieldColor,
+                      ),
+                      decoration: InputDecoration(
+                          prefixIcon: AppIcons.searchIcon,
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: Responsive.width(4.0, context),
+                          ),
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                          )),
+                    ),
+                    SizedBox(
+                      height: Responsive.height(10.0, context),
+                    ),
+                    const FormWidget(),
+                    SizedBox(
+                      height: Responsive.height(10.0, context),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: AppTexts.add,
+                    ),
+                  ],
+                ),
+
+              ],
             ),
           ],
         ),
@@ -72,16 +75,27 @@ class _FormWidgetState extends State<FormWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(Responsive.height(5, context)),
-      child: Container(
-        child: Column(children: [
+      child: Column(
+        children: [
           TextFormField(
             decoration: const InputDecoration(
               labelText: AppTexts.nameMovie,
+              labelStyle: TextStyle(
+                color: AppColors.textTextFormFieldColor,
+              ),
+            ),
+          ),
+          SizedBox(height: Responsive.height(5.0, context),),
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: AppTexts.descriptionMovie,
+              labelStyle: TextStyle(
+                color: AppColors.textTextFormFieldColor,
+              ),
             ),
           )
-        ],),
+        ],
       ),
     );
   }
 }
-
