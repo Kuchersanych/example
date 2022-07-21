@@ -36,15 +36,18 @@ class _MovieListWidgetState extends State<MovieListWidget> {
       imageName: 'images/boys.jpg',
       title: 'Мера',
       description: 'Про супергероев',
-    ),Movie(
+    ),
+    Movie(
       imageName: 'images/boys.jpg',
       title: 'Большой куш',
       description: 'Про супергероев',
-    ),Movie(
+    ),
+    Movie(
       imageName: 'images/boys.jpg',
       title: 'Король',
       description: 'Про супергероев',
-    ),Movie(
+    ),
+    Movie(
       imageName: 'images/boys.jpg',
       title: 'Бабы',
       description: 'Про супергероев',

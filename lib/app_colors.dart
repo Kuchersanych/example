@@ -16,5 +16,6 @@ abstract class AppColors{
   static const movieWidgetColor = Color.fromRGBO(0, 151, 136, 0.5);
   static const transparentColor = Colors.transparent;
   static const filledSearchColor = Color.fromRGBO(0, 151, 136, 0.7);
+  static const addButtonColor = Color.fromRGBO(0, 151, 136, 0.7);
 
 }

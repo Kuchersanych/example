@@ -6,6 +6,7 @@ import 'package:example/modules/serials_module/serials_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../movies_module/movies_screen.dart';
+import '../serials_module/add_serials_screen.dart';
 import 'menu_widget.dart';
 
 class MainScreen extends StatefulWidget {
@@ -63,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
 
       floatingActionButton:  _selectedTab != 0 ? FloatingActionButton(
         backgroundColor: AppColors.backgroundColor,
-        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => _selectedTab == 1 ? const AddMovieScreen() : Scaffold())),
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => _selectedTab == 1 ? const AddMovieScreen() : const AddSerialsScreen())),
         child: AppIcons.addMoviesIcon,
       ) : null,
     );

@@ -4,24 +4,24 @@ import 'package:example/modules/movies_module/app_Icons.dart';
 import 'package:example/responsive.dart';
 import 'package:flutter/material.dart';
 
-class AddMovieScreen extends StatefulWidget {
-  const AddMovieScreen({Key? key}) : super(key: key);
+import '../movies_module/add_movie_screen.dart';
+
+class AddSerialsScreen extends StatefulWidget {
+  const AddSerialsScreen({Key? key}) : super(key: key);
 
   @override
-  State<AddMovieScreen> createState() => _AddMovieScreenState();
+  State<AddSerialsScreen> createState() => _AddSerialsScreenState();
 }
 
-class _AddMovieScreenState extends State<AddMovieScreen> {
+class _AddSerialsScreenState extends State<AddSerialsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Добавить сериал',
-          style: TextStyle(
-            fontSize: 25,
-          ),
-        ),
+        title: Text('Добовить сериал',
+        style: TextStyle(
+          fontSize: 25
+        ),),
       ),
       body: Center(
 
@@ -57,7 +57,8 @@ class _AddMovieScreenState extends State<AddMovieScreen> {
                     ),
                     ElevatedButton(
                       style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(AppColors.addButtonColor),),
+                        backgroundColor: MaterialStateProperty.all(AppColors.addButtonColor),
+                      ),
                       onPressed: () {},
                       child: AppTexts.add,
                     ),
@@ -73,39 +74,4 @@ class _AddMovieScreenState extends State<AddMovieScreen> {
   }
 }
 
-class FormAddMovieWidget extends StatefulWidget {
-  const FormAddMovieWidget({Key? key}) : super(key: key);
 
-  @override
-  State<FormAddMovieWidget> createState() => _FormAddMovieWidgetState();
-}
-
-class _FormAddMovieWidgetState extends State<FormAddMovieWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(Responsive.height(5, context)),
-      child: Column(
-        children: [
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: AppTexts.nameMovie,
-              labelStyle: TextStyle(
-                color: AppColors.textTextFormFieldColor,
-              ),
-            ),
-          ),
-          SizedBox(height: Responsive.height(5.0, context),),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: AppTexts.descriptionMovie,
-              labelStyle: TextStyle(
-                color: AppColors.textTextFormFieldColor,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
