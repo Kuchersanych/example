@@ -5,36 +5,83 @@ import 'package:example/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-import '../../../../domain/entity/movie.dart';
-import 'movie_screen_modal.dart';
+class Serials {
+  String? imageName = '';
+  String title;
+  String? description = '';
+  String? rating = '';
 
-
-
-class MovieListWidget extends StatefulWidget {
-  final int indexInList;
-  const MovieListWidget({Key? key, required this.indexInList, }) : super(key: key);
-
-  @override
-  State<MovieListWidget> createState() => _MovieListWidgetState();
+  Serials({
+    this.imageName,
+    required this.title,
+    this.description,
+    this.rating,
+  });
 }
 
-class _MovieListWidgetState extends State<MovieListWidget> {
-  final _movies = <Movie>[
+class SerialsListWidget extends StatefulWidget {
+  const SerialsListWidget({Key? key}) : super(key: key);
 
+  @override
+  State<SerialsListWidget> createState() => _SerialsListWidgetState();
+}
+
+class _SerialsListWidgetState extends State<SerialsListWidget> {
+  final _serials = [
+    Serials(
+      imageName: 'images/boys.jpg',
+      title: 'Мера',
+      description: 'Про супергероев',
+    ),
+    Serials(
+      imageName: 'images/look.png',
+      title: 'Большой куш',
+      description: 'Про супергероев',
+    ),
+    Serials(
+      imageName: 'images/boys.jpg',
+      title: 'Король',
+      description: 'Про супергероев',
+    ),
+    Serials(
+      imageName: 'images/boys.jpg',
+      title: 'Бабы',
+      description: 'Про супергероев',
+    ),
+    Serials(
+      imageName: 'images/boys.jpg',
+      title: 'Бабы',
+      description: 'Про супергероев',
+    ),
+    Serials(
+      imageName: 'images/boys.jpg',
+      title: 'Бабы',
+      description: 'Про супергероев',
+    ),
+    Serials(
+      imageName: 'images/boys.jpg',
+      title: 'Бабы',
+      description: 'Про супергероев',
+    ),
+    Serials(
+      imageName: 'images/boys.jpg',
+      title: 'Бабы',
+      description: 'Про супергероев',
+    ),
   ];
 
-  var _filteredMovies = <Movie>[];
+  var _filteredSerials = <Serials>[];
 
   final _searchController = TextEditingController();
 
-  void _searchMovies() {
+  void _searchSerials() {
     final query = _searchController.text;
     if (query.isNotEmpty) {
-      _filteredMovies = _movies.where((Movie movie) {
+      _filteredSerials = _serials.where((Serials movie) {
         return movie.title.toLowerCase().contains(query.toLowerCase());
       }).toList();
     } else {
-      _filteredMovies = _movies;
+      _filteredSerials = _serials;
     }
     setState(() {});
   }
@@ -42,28 +89,22 @@ class _MovieListWidgetState extends State<MovieListWidget> {
   @override
   void initState() {
     super.initState();
-    _searchController.addListener(_searchMovies);
-    _filteredMovies = _movies;
+    _searchController.addListener(_searchSerials);
+    _filteredSerials = _serials;
   }
 
   @override
   Widget build(BuildContext context) {
-
-    final movie = MoviesScreenModelProvider.read(context)!.model.movies[indexInList];
-    final moviesCount = MoviesScreenModelProvider.watch(context)?.model.movies.length ?? 0;
     return SafeArea(
       child: Stack(
         children: [
           ListView.builder(
-
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             padding: EdgeInsets.only(top: Responsive.height(10.0, context)),
-
-
-            itemCount: moviesCount,
+            itemCount: _filteredSerials.length,
             itemExtent: Responsive.height(25.0, context),
             itemBuilder: (BuildContext context, int index) {
-              final movie = _filteredMovies[index];
+              final serial = _filteredSerials[index];
               return Slidable(
                 endActionPane: ActionPane(
                   motion: const ScrollMotion(),
@@ -86,7 +127,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.movieWidgetColor,
+                          color: AppColors.serialWidgetColor,
                           border: Border.all(
                             color: AppColors.borderColor,
                           ),
@@ -105,8 +146,10 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                         child: Row(
                           children: [
                             SizedBox(
-                            width: Responsive.width(30.0, context),
-                              child: Image(image: AssetImage(movie.imageName)),
+                              width: Responsive.width(30, context),
+                              child: Image(
+                                  image: AssetImage(
+                                      serial.imageName ?? 'images/look.png')),
                             ),
                             SizedBox(
                               width: Responsive.width(4.0, context),
@@ -119,7 +162,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                                     height: Responsive.height(3.0, context),
                                   ),
                                   Text(
-                                    movie.title,
+                                    serial.title,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
@@ -131,7 +174,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                                     height: Responsive.height(2.0, context),
                                   ),
                                   Text(
-                                    movie.description,
+                                    serial.description ?? '',
                                     maxLines: 5,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
@@ -139,6 +182,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                                       color: AppColors.textMenuColor,
                                     ),
                                   ),
+                                  const Text(AppTexts.rating),
                                 ],
                               ),
                             )
@@ -161,7 +205,9 @@ class _MovieListWidgetState extends State<MovieListWidget> {
             },
           ),
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: Responsive.width(2, context), vertical: Responsive.height(2.0, context)),
+            padding: EdgeInsets.symmetric(
+                horizontal: Responsive.width(2, context),
+                vertical: Responsive.height(2.0, context)),
             child: TextFormField(
               controller: _searchController,
               style: const TextStyle(
@@ -170,7 +216,6 @@ class _MovieListWidgetState extends State<MovieListWidget> {
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
-
                 ),
                 filled: true,
                 fillColor: AppColors.filledSearchColor,
@@ -184,51 +229,12 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                 ),
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(25.0)),
-
                 ),
               ),
             ),
           ),
-
         ],
       ),
     );
   }
 }
-
-
-// Movie(
-//   imageName: 'images/movie.png',
-//   title: 'Interstellar',
-//   description: 'Про азбуку Морзе',
-// ),
-// Movie(
-//   imageName: 'images/movie.png',
-//   title: 'Interstellar',
-//   description: 'Про азбуку Морзе',
-// ),
-// Movie(
-//   imageName: 'images/movie.png',
-//   title: 'Interstellar',
-//   description: 'Про азбуку Морзе',
-// ),
-// Movie(
-//   imageName: 'images/movie.png',
-//   title: 'Interstellar',
-//   description: 'Про азбуку Морзе',
-// ),
-// Movie(
-//   imageName: 'images/movie.png',
-//   title: 'Interstellar',
-//   description: 'Про азбуку Морзе',
-// ),
-// Movie(
-//   imageName: 'images/movie.png',
-//   title: 'Interstellar',
-//   description: 'Про азбуку Морзе',
-// ),
-// Movie(
-//   imageName: 'images/movie.png',
-//   title: 'Interstellar',
-//   description: 'Про азбуку Морзе',
-// ),

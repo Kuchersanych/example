@@ -42,11 +42,11 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
         items: const [
-        BottomNavigationBarItem(icon: AppIcons.home,
+        BottomNavigationBarItem(icon: AppIcons.homeIcon,
         label: AppTexts.menu,),
-        BottomNavigationBarItem(icon: AppIcons.movies,
+        BottomNavigationBarItem(icon: AppIcons.moviesIcon,
         label: AppTexts.movies,),
-        BottomNavigationBarItem(icon: AppIcons.serials,
+        BottomNavigationBarItem(icon: AppIcons.serialsIcon,
         label: AppTexts.serials,),
       ],
         onTap: onSelectedTab,
@@ -64,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
 
       floatingActionButton:  _selectedTab != 0 ? FloatingActionButton(
         backgroundColor: AppColors.backgroundColor,
-        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => _selectedTab == 1 ? const AddMovieScreen() : const AddSerialsScreen())),
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => _selectedTab == 1 ? const AddMovieScreen() : const AddSerialScreen())),
         child: AppIcons.addMoviesIcon,
       ) : null,
     );
@@ -82,8 +82,8 @@ class MainMenuWidget extends StatelessWidget {
           children:   [
             MenuWidget(icon: Icons.movie_creation_sharp, text: AppTexts.addMovie, onTap: (){final navigatorMovies =  Navigator.of(context);
             navigatorMovies.push(MaterialPageRoute(builder: (context) => const AddMovieScreen()));},),
-            // MenuWidget(icon: Icons.movie_filter_outlined, text: AppTexts.serials, onTap: () {final navigatorSerials = Navigator.of(context);
-            // navigatorSerials.push(MaterialPageRoute(builder: (context) => const SerialsScreen()));},),
+            MenuWidget(icon: Icons.movie_filter_outlined, text: AppTexts.addSerial, onTap: () {final navigatorSerials = Navigator.of(context);
+            navigatorSerials.push(MaterialPageRoute(builder: (context) => const AddSerialScreen()));},),
           ],
         ),
 

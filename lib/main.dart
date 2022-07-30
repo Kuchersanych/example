@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'app_theme.dart';
 import 'modules/main_module/main_screen.dart';
 import 'modules/movies_module/add_movie_screen.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   runApp(const MyApp());
 }
 
